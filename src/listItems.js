@@ -13,14 +13,14 @@ export const mainListItems = (
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <Link to="/test"><ListItemText primary="Dashboard" /></Link>
+      <Link to="/dashboard"><ListItemText primary="Dashboard" /></Link>
       
     </ListItem>
     <ListItem>
     <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
-      <ListItemText primary="Orders" />
+      <Link to="/about"><ListItemText primary="About" /></Link>
     </ListItem>
   </div>
 );

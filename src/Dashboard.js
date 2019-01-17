@@ -15,15 +15,17 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styles from './DashboardStyle';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import {mainListItems} from './listItems';
+
+import About from './components/About';
+import DashboardContent from './components/DashboardContent';
+
 
 class Dashboard extends React.Component {
   state = {
     open: true,
   };
-
-
 
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -35,15 +37,8 @@ class Dashboard extends React.Component {
 
   render() {
     const { classes } = this.props;
-
-    const test = () => (
-      <div>
-        <h2>12312421Home</h2>
-      </div>
-    );
-
+    
     return (
-      <Router>
       <div className={classes.root}>
         <CssBaseline />
         <AppBar
@@ -96,22 +91,14 @@ class Dashboard extends React.Component {
         </Drawer>
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
-          <Typography variant="h4" gutterBottom component="h2">
-            Orders
-          </Typography>
-          <Typography component="div" className={classes.chartContainer}>
-          </Typography>
-          <Typography variant="h4" gutterBottom component="h2">
-            Products
-          </Typography>
+          <Switch>
+            <Route path="/dashboard" component={DashboardContent} />
+            <Route path="/about" component={About} />
+          </Switch>
           <div className={classes.tableContainer}>
           </div>
         </main>
-        <Route path="/test" component={test} />
-
-      </div>
-    
-    </Router>
+      </div>   
     );
 
 
