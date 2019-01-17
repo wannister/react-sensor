@@ -1,29 +1,29 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
-import MenuIcon from '@material-ui/icons/Menu';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Divider from '@material-ui/core/Divider';
+import Drawer from '@material-ui/core/Drawer';
+import IconButton from '@material-ui/core/IconButton';
+import List from '@material-ui/core/List';
+import { withStyles } from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
-import styles from './DashboardStyle'
-
-
-
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
+import styles from './DashboardStyle';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {mainListItems} from './listItems';
 
 class Dashboard extends React.Component {
   state = {
     open: true,
   };
+
+
 
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -36,7 +36,14 @@ class Dashboard extends React.Component {
   render() {
     const { classes } = this.props;
 
+    const test = () => (
+      <div>
+        <h2>12312421Home</h2>
+      </div>
+    );
+
     return (
+      <Router>
       <div className={classes.root}>
         <CssBaseline />
         <AppBar
@@ -100,8 +107,14 @@ class Dashboard extends React.Component {
           <div className={classes.tableContainer}>
           </div>
         </main>
+        <Route path="/test" component={test} />
+
       </div>
+    
+    </Router>
     );
+
+
   }
 }
 
